@@ -1,0 +1,10 @@
+.cardscontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    margin: 40px;
+    background-color: #cca8e95d ;
+    padding: 2em;
+    border-radius: 15px;
+}
