@@ -7,4 +7,5 @@
     background-color: #cca8e95d ;
     padding: 2em;
     border-radius: 15px;
+    flex-wrap: wrap;
 }

@@ -5,6 +5,11 @@
    background-image: url(https://wallpapercave.com/wp/wp11599654.jpg);
    background-size:cover;
    background-color: #1f1764;
-   width: auto;
-   height: auto;
+   /* width: auto; */
+   min-height: 100vh;
 }
+/* *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+} */ 

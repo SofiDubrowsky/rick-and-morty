@@ -19,15 +19,16 @@
   }
 
 .container img {
-    width: auto;
+    width: auto; /* poner 80% */
     height: 180px;
     object-fit:contain;
     justify-content: center;
     margin: 3px;
+    /* border-radius: 10px; */
 }
 
 .container h2 {
-    display:grid;
+    /* display:grid; */
     font-size: 12px;
 }
 
