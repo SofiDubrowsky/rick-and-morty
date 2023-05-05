@@ -7,6 +7,7 @@ const Nav = ({onSearch}) => {
         <SearchBar onSearch={onSearch}/>
         <button><NavLink to='/about'>About</NavLink></button>
         <button><NavLink to='/home'>Home</NavLink></button>
+        <button><NavLink to='/'>Log out</NavLink></button>
     </div>
     )
 }
