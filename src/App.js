@@ -52,7 +52,7 @@ const location = useLocation()
       <div className='App'>
          {
             location.pathname !== '/' 
-            ? <Nav onSearch={onSearch}/>
+            ? <Nav onSearch={onSearch} setAccess={setAccess}/>
             : null
          }
       <Routes>
