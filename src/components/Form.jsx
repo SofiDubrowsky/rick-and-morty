@@ -34,7 +34,7 @@ const handleSubmit = (event) =>{
             {errors.email && <p style={{color:"white"}} >{errors.email}</p>}
             <hr/>
             <label style={{color:"white"}} htmlFor="password">Password: </label>
-            <input onChange={handleChange} value={userData.pasword} name='password' type='password' placeholder="ingrese su password aqui"></input>
+            <input onChange={handleChange} value={userData.password} name='password' type='password' placeholder="ingrese su password aqui"></input>
             {errors.password && <p style={{color:"white"}} >{errors.password}</p>}
             <hr/>
             <button>Submit</button>

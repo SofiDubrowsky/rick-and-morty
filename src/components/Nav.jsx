@@ -12,8 +12,9 @@ const Nav = ({onSearch, setAccess}) => {
         <SearchBar onSearch={onSearch}/>
         <button><NavLink to='/about'>About</NavLink></button>
         <button><NavLink to='/home'>Home</NavLink></button>
+        <button><NavLink to='/favorites'>Favorites</NavLink></button>
         <button onClick={handleLogOut}>Log out</button>
-        {/* <button><NavLink to='/'>Log out</NavLink></button> */}
+       
     </div>
     )
 }
