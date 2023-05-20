@@ -9,8 +9,8 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form'
 import Favorites from './components/Favorites/Favorites';
 
-const EMAIL = 'sofidubrowsky@hotmail.com.ar'
-const PASSWORD = 'hola123'
+// const EMAIL = 'sofidubrowsky@hotmail.com.ar'
+// const PASSWORD = 'hola123'
 
 function App() {
    const location = useLocation()
@@ -19,10 +19,13 @@ function App() {
    const [access,setAccess] = useState(false);
  
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
@@ -42,7 +45,7 @@ function App() {
 }
 
 const onClose = (id) =>{
-   const charactersFiltered= characters.filter(character => character.id !== Number(id))
+   const charactersFiltered= characters.filter(character => character.id !== id)
    setCharacters(charactersFiltered)
 }
 
