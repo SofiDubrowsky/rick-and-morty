@@ -4,6 +4,7 @@ const postUser = require ('../controllers/postUser')
 const postFav = require ('../controllers/postFav')
 const deleteFav =require ('../controllers/deleteFav')
 const getAllUsers = require ('../controllers/getAllUsers')
+const getAllCharacters = require ('../controllers/getAllCharacters')
 
 const router = require('express').Router();
 
@@ -26,5 +27,7 @@ router.delete('/fav/:id',  (req, res) => {
 });
 
 router.get('/users', getAllUsers)
+
+router.get('/characters', getAllCharacters)
 
 module.exports = router; 
