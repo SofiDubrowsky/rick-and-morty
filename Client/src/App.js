@@ -6,8 +6,10 @@ import axios from 'axios';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About';
 import Detail from './components/Detail/Detail';
-import Form from './components/Form'
+import Form from './components/Form/Form'
 import Favorites from './components/Favorites/Favorites';
+import SingUp from './components/SingUp/SingUp';
+import Swal from 'sweetalert2';
 
 // const EMAIL = 'sofidubrowsky@hotmail.com.ar'
 // const PASSWORD = 'hola123'
@@ -22,14 +24,21 @@ function App() {
    const login = async (userData) => {
       try {
          const { email, password } = userData;
-         const {data} = await axios(URL + `?email=${email}&password=${password}`)
+         const {data} = await axios.post(URL, { email, password })
          
             const { access } = data;
             setAccess(data);
-            access && navigate('/home');
+            access && navigate('/home');  
          
       } catch (error) {
          console.log(error.message);
+         Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: 'No se ha podido iniciar sesión, datos incorrectos',
+            showConfirmButton: false,
+            timer: 2000
+          });
       }
    }
 
@@ -41,7 +50,13 @@ function App() {
    try {
       const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
       if (data.name) {
-         setCharacters((oldChars) => [...oldChars, data]);
+         
+         const searched = characters.find((char)=> char.id === data.id)
+         if(!searched){
+            setCharacters((oldChars) => [...oldChars, data]);
+         }else{
+            alert('¡Ese personaje ya fue buscado!')
+         }
       };
    } catch (error) {
       alert('¡No hay personajes con este ID!')
@@ -56,7 +71,7 @@ const onClose = (id) =>{
 return (
       <div className='App'>
          {
-            location.pathname !== '/' 
+            location.pathname !== '/' && location.pathname !== '/SingUp'
             ? <Nav onSearch={onSearch} setAccess={setAccess}/>
             : null
          }
@@ -66,6 +81,7 @@ return (
          <Route path='/about' element={<About/>}/>
          <Route path='/detail/:id' element={<Detail/>}/> 
          <Route path='/favorites' element={<Favorites/>} />
+         <Route path='/SingUp' element={<SingUp/>} />
       </Routes>
       </div>
    );
