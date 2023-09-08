@@ -65,3 +65,5 @@ export default connect(
    mapStateToProps,
    mapDispatchToProps
 )(Card);
+
+//prueba
